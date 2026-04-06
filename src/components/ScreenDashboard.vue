@@ -11,6 +11,7 @@
         <button
           class="remove-btn"
           data-testid="remove-btn"
+          :disabled="store.loading"
           @click="store.deleteTopic(topic.id)"
         >
           Remove

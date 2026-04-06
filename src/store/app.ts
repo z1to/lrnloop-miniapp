@@ -157,12 +157,15 @@ export const useAppStore = defineStore('app', {
     },
 
     async deleteTopic(id: string) {
+      this.loading = true
       this.error = null
       try {
         await api.deleteTopic(id)
         this.topics = this.topics.filter(t => t.id !== id)
       } catch {
         this.error = 'Failed to remove topic. Please try again.'
+      } finally {
+        this.loading = false
       }
     },
 

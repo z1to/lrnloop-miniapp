@@ -51,11 +51,11 @@ const rawInput = ref(store.draft.wakeTime)
 const inputRef = ref<HTMLInputElement | null>(null)
 
 function stepDown() {
-  store.draft.wakeTime = stepWakeTime(store.draft.wakeTime, -30)
+  store.setWakeTimeDraft(stepWakeTime(store.draft.wakeTime, -30))
 }
 
 function stepUp() {
-  store.draft.wakeTime = stepWakeTime(store.draft.wakeTime, 30)
+  store.setWakeTimeDraft(stepWakeTime(store.draft.wakeTime, 30))
 }
 
 async function startEditing() {
@@ -69,7 +69,7 @@ async function startEditing() {
 function commitEdit() {
   const parsed = parseWakeTime(rawInput.value)
   if (parsed) {
-    store.draft.wakeTime = parsed
+    store.setWakeTimeDraft(parsed)
   }
   // On invalid input, revert silently — draft stays unchanged
   editing.value = false
