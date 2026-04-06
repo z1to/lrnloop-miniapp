@@ -47,14 +47,6 @@ import { TIMEZONE_OPTIONS, formatLocalTime, formatUtcOffset } from '../composabl
 
 const store = useAppStore()
 
-// Pre-select the browser's detected timezone synchronously before first render
-// so the Next button is enabled from the start (falls back to first option)
-if (!store.draft.timezone) {
-  const detected = Intl.DateTimeFormat().resolvedOptions().timeZone
-  const match = TIMEZONE_OPTIONS.find(tz => tz.iana === detected)
-  store.setTimezoneDraft(match ? match.iana : TIMEZONE_OPTIONS[0].iana)
-}
-
 const now = ref(new Date())
 let timer: ReturnType<typeof setInterval>
 

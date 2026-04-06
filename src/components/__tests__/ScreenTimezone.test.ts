@@ -53,6 +53,7 @@ describe('ScreenTimezone', () => {
     const store = useAppStore()
     store.editContext = 'onboarding'
     store.draft.timezone = 'Europe/London'
+    await wrapper.vm.$nextTick()
     await wrapper.find('[data-testid="next-btn"]').trigger('click')
     expect(store.currentScreen).toBe('topic')
   })
