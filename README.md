@@ -1,6 +1,6 @@
 # lrnloop-miniapp
 
-Telegram Mini App frontend for [LrnLoop](https://github.com/z1to/lrnloop) — a spaced-repetition learning assistant delivered via Telegram.
+Telegram Mini App frontend for LrnLoop — a spaced-repetition learning assistant delivered via Telegram.
 
 ## What it does
 
