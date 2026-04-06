@@ -47,8 +47,6 @@ npm run dev
 npm test
 ```
 
-## Deploy
+## Live
 
-Pushing to `main` triggers GitHub Actions: runs tests, builds with `VITE_API_BASE_URL` from repo secrets, deploys to GitHub Pages.
-
-Live URL: `https://z1to.github.io/lrnloop-miniapp/`
+`https://z1to.github.io/lrnloop-miniapp/`
