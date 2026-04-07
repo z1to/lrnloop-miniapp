@@ -78,6 +78,9 @@ function onNext() {
 <style scoped>
 .screen--timezone {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .screen-header {
@@ -143,5 +146,6 @@ function onNext() {
   padding: 16px 20px;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 </style>
