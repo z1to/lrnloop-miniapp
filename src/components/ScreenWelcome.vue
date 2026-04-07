@@ -3,7 +3,7 @@
   <div class="screen screen--center">
     <div class="welcome-content">
       <div class="welcome-emoji">🧠</div>
-      <h1 class="welcome-title">LrnLoop</h1>
+      <h1 class="welcome-title">Lrnloop</h1>
       <p class="welcome-pitch">Science-backed learning<br>delivered throughout your day.</p>
     </div>
     <button class="btn-primary" @click="store.navigate('wake-time')">

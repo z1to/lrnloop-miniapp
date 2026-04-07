@@ -25,9 +25,9 @@ describe('ScreenWelcome', () => {
     setActivePinia(createPinia())
   })
 
-  it('renders the LrnLoop heading', () => {
+  it('renders the Lrnloop heading', () => {
     const wrapper = mount(ScreenWelcome)
-    expect(wrapper.text()).toContain('LrnLoop')
+    expect(wrapper.text()).toContain('Lrnloop')
   })
 
   it('renders a "Get started" button', () => {
