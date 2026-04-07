@@ -9,6 +9,7 @@
       </template>
       <template v-else>
         <div class="spinner" />
+        <p class="loading-text">Loading…</p>
       </template>
     </div>
 
@@ -151,5 +152,11 @@ html, body {
   font-size: 13px;
   text-align: center;
   margin-top: 8px;
+}
+
+.loading-text {
+  font-size: 14px;
+  color: var(--tg-theme-hint-color, #888);
+  margin-top: 12px;
 }
 </style>

@@ -12,14 +12,24 @@ const BASE = import.meta.env.VITE_API_BASE_URL ?? ''
 
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
   const initData = window.Telegram?.WebApp?.initData ?? ''
-  const res = await fetch(`${BASE}${path}`, {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Telegram-Init-Data': initData,
-    },
-    body: body !== undefined ? JSON.stringify(body) : undefined,
-  })
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 15_000)
+  let res: Response
+  try {
+    res = await fetch(`${BASE}${path}`, {
+      method,
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Telegram-Init-Data': initData,
+      },
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    })
+  } catch (e) {
+    clearTimeout(timeout)
+    throw e
+  }
+  clearTimeout(timeout)
   if (!res.ok) {
     const errorBody = await res.json().catch(() => ({}))
     throw new ApiError(res.status, errorBody)
